@@ -1,6 +1,5 @@
 view: us_counties {
-  sql_table_name: "LOOKER"."US_COUNTIES"
-    ;;
+  sql_table_name: "LOOKER"."US_COUNTIES" ;;
 
   dimension: aland {
     type: string
@@ -29,6 +28,7 @@ view: us_counties {
 
   dimension: geoid {
     type: string
+    primary_key: yes
     sql: ${TABLE}."GEOID" ;;
   }
 
@@ -40,6 +40,11 @@ view: us_counties {
   dimension: intptlong {
     type: number
     sql: ${TABLE}."INTPTLONG" ;;
+  }
+
+  dimension: location {
+    sql_latitude: ${intptlat} ;;
+    sql_longitude: ${intptlong} ;;
   }
 
   dimension: name {

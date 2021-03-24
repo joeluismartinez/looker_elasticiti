@@ -1,6 +1,5 @@
 view: us_cities {
-  sql_table_name: "LOOKER"."US_CITIES"
-    ;;
+  sql_table_name: "LOOKER"."US_CITIES" ;;
 
   dimension: aland {
     type: number
@@ -34,6 +33,7 @@ view: us_cities {
 
   dimension: geoid {
     type: string
+    primary_key: yes
     sql: ${TABLE}."GEOID" ;;
   }
 
@@ -60,6 +60,12 @@ view: us_cities {
   dimension: state {
     type: string
     sql: ${TABLE}."STATE" ;;
+  }
+
+  dimension: city_location {
+    type: location
+    sql_latitude: ${intptlat} ;;
+    sql_longitude: ${intptlong} ;;
   }
 
   measure: count {
