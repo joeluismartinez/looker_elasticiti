@@ -1,5 +1,7 @@
 view: bb_batting {
-  sql_table_name: "LOOKER"."BB_BATTING" ;;
+  derived_table: {
+    sql: SELECT * FROM "LOOKER"."BB_BATTING" ;;
+    }
 
   dimension: pk {
     primary_key: yes
